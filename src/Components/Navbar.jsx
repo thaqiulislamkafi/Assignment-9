@@ -14,7 +14,7 @@ const Navbar = () => {
                 <div className='pageButtton'>
                     <ul className='Nav-mid mt-0.5 poppins'>
                         <NavLink to={"/"}>Home</NavLink>
-                        <NavLink to={"/listedBooks"}>Blog</NavLink>
+                        <NavLink to={"/kab"}>Blog</NavLink>
                         
                         
                     </ul>

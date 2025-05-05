@@ -3,6 +3,8 @@ import Home from "./Components/Home";
 import Body from "./Components/Body";
 import EventDetails from "./Components/eventDetails";
 import { Suspense } from "react";
+import Error from "./Components/Error";
+import DynamicError from "./Components/DynamicError";
 
 
 
@@ -21,7 +23,15 @@ const router = createBrowserRouter([
                 element : <Suspense fallback={<div className=" flex justify-center items-center h-screen">
                 <span className="loading loading-dots" style={{width : '50px' }}></span>
                 </div>}><EventDetails></EventDetails></Suspense>,
-                loader : ()=> fetch('../eventData.json')
+                loader : ()=> fetch('../eventData.json'),
+                errorElement : <DynamicError></DynamicError>
+            },
+            {
+                path : '*',
+                element : <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen"><span className="loading loading-dots" style={{width : '50px'}}></span></div>
+                }
+                ><Error></Error></Suspense>
             }
         ]
     }
