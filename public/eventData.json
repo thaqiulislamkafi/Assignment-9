@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "thumbnail": "https://www.smbtechfest.com/images/PictureMain2020-1.png",
+    "name": "InnovateTech Expo 2025",
+    "category": "Tech",
+    "date": "2025-06-15",
+    "location": "City Convention Center, Downtown",
+    "entry_fee": "Free",
+    "details": "The InnovateTech Expo 2025 is a premier event showcasing the latest advancements in technology. Attendees will have the opportunity to explore cutting-edge innovations from local startups, participate in interactive software demos, and gain insights into the future of tech. The event features keynote speeches from industry leaders, hands-on coding workshops, and panel discussions on emerging trends. Whether you're an entrepreneur looking for inspiration, a developer eager to learn new skills, or simply a tech enthusiast curious about what's next, this expo offers something for everyone. Don't miss the chance to network with like-minded professionals and discover the tools that will shape tomorrow's digital landscape."
+  },
+  {
+    "id": "2",
+    "thumbnail": "https://images.squarespace-cdn.com/content/v1/56f194ec60b5e96a0b015712/1649860559693-7DPM2JHEZJZEGP59HH4F/DSC_7895.jpg?format=1000w",
+    "name": "Art in the Park",
+    "category": "Art",
+    "date": "2025-06-18",
+    "location": "Central Park Amphitheater",
+    "entry_fee": "$5",
+    "details": "Art in the Park is a vibrant celebration of creativity, bringing together over 50 local artists in a picturesque outdoor setting. Visitors can enjoy live painting demonstrations, browse handmade crafts, and listen to live music performances. The event also features interactive art stations where children and adults alike can unleash their creativity. Food stalls offering delicious local treats add to the festive atmosphere. This family-friendly event is perfect for art lovers of all ages, providing a unique opportunity to support local talent while enjoying a day filled with beauty and inspiration."
+  },
+  {
+    "id": "3",
+    "thumbnail": "https://brisbanekids.com.au/wp-content/uploads/2023/08/Code-Camp-kids-coding.jpg",
+    "name": "Junior Code Camp",
+    "category": "Tech",
+    "date": "2025-07-01",
+    "location": "Tech Valley Hub",
+    "entry_fee": "$10",
+    "details": "The Junior Code Camp is a full-day immersive experience designed to introduce teens aged 12–18 to the exciting world of coding. Participants will learn the basics of Python, explore game design principles, and even build their first mobile app under the guidance of experienced instructors. No prior coding experience is required, making this camp ideal for beginners. The camp includes access to laptops, snacks, and all necessary materials. With a focus on hands-on learning and collaboration, this event is a fantastic way for young minds to develop valuable tech skills and ignite a passion for innovation. Early registration is recommended due to limited spots."
+  },
+  {
+    "id": "4",
+    "thumbnail": "https://static1.squarespace.com/static/633313551ca2e94aca4f545a/t/63f5f3adfbbc7d4a9e21eb8e/1677063085519/AGF_website.png?format=1500w",
+    "name": "Green Future Fair",
+    "category": "Environment",
+    "date": "2025-06-22",
+    "location": "Riverbank Eco Park",
+    "entry_fee": "Free",
+    "details": "The Green Future Fair is a celebration of sustainability and eco-conscious living. Attendees can connect with local environmental groups, discover green startups, and participate in hands-on recycling and composting demonstrations. Kids will love the nature-based games and activities, while adults can explore booths dedicated to solar energy, low-waste living, and other eco-friendly practices. The fair also features live acoustic music performances and a variety of organic food trucks, making it a fun and educational day out for the whole family. Join us in learning how small changes can make a big impact on our planet."
+  },
+  {
+    "id": "5",
+    "thumbnail": "https://img.freepik.com/free-vector/flat-international-chefs-day-illustration_52683-94954.jpg",
+    "name": "Local Culinary Day",
+    "category": "Food",
+    "date": "2025-07-05",
+    "location": "City Food Court Pavilion",
+    "entry_fee": "$8",
+    "details": "Local Culinary Day is a feast for the senses, offering attendees the chance to sample unique dishes crafted by talented local chefs and food startups. From street food favorites to gourmet delicacies, there's something to satisfy every palate. The event also includes live cooking demonstrations where chefs share their techniques and secrets, as well as a mini bake-off competition for dessert lovers. Whether you're a foodie looking to discover new flavors or simply enjoy a day of delicious eats, this event promises a memorable culinary experience. Don't forget to bring your appetite!"
+  },
+  {
+    "id": "6",
+    "thumbnail": "https://walkartfest.pt/downloads/SEO/1/imagem1.jpg?v=68182e68e56a0",
+    "name": "Urban Photo Walk",
+    "category": "Art",
+    "date": "2025-06-29",
+    "location": "City Gallery Entrance",
+    "entry_fee": "$3",
+    "details": "The Urban Photo Walk is a guided tour through the city's most photogenic neighborhoods and hidden alleyways. Led by local photographers, participants will learn valuable techniques for capturing stunning images while exploring the city's unique charm. This event is open to photographers of all skill levels, whether you're using a professional camera or a smartphone. Along the way, you'll discover new perspectives on familiar places and gain insights into composition, lighting, and storytelling through photography. It's a perfect opportunity to hone your skills, meet fellow photography enthusiasts, and take home beautiful memories of the city."
+  },
+  {
+    "id": "7",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-eVOkrdY82AYNhdYe7R58ZGHEzqIvlckYAw&s",
+    "name": "Summer Book Fest",
+    "category": "Culture",
+    "date": "2025-07-10",
+    "location": "Public Library Lawn",
+    "entry_fee": "Free",
+    "details": "The Summer Book Fest is a celebration of literature, bringing together readers, writers, and book lovers of all ages. The event features readings and book signings by local authors, as well as pop-up bookshops where you can find your next favorite read. Kids will enjoy the dedicated storytelling corner, while adults can look forward to an evening poetry slam. With a relaxed atmosphere on the library lawn, this is the perfect opportunity to unwind with a good book, meet fellow bibliophiles, and celebrate the joy of reading. Bring a blanket, settle in, and let the words transport you."
+  },
+  {
+    "id": "8",
+    "thumbnail": "https://www.mymagnaevent.co.uk/wp-content/uploads/sites/3/2024/08/FightFest-Group-of-Robots.jpg",
+    "name": "Robotics Battle Arena",
+    "category": "Tech",
+    "date": "2025-07-15",
+    "location": "Innovation Lab Grounds",
+    "entry_fee": "$12",
+    "details": "The Robotics Battle Arena is an adrenaline-fueled event where teams of students and hobbyists compete in high-speed robot duels. Spectators can cheer on their favorite robots while learning about the engineering and programming behind these impressive machines. The event also includes STEM exhibits and hands-on robot-building zones for kids, making it a fun and educational experience for the whole family. Prizes will be awarded to the top competitors, adding an extra layer of excitement. Whether you're a robotics enthusiast or just looking for a unique day out, this event promises thrills, learning, and plenty of action. Safety goggles are recommended for those who want to get up close to the battles!"
+  },
+  {
+    "id": "9",
+    "thumbnail": "https://growingfaith.com.au/images/made/images/uploads/growing-faith-682x341-2022-12-08c_682_341_int_c1_c_c__1.jpg",
+    "name": "Handmade Craft Bazaar",
+    "category": "Art",
+    "date": "2025-06-25",
+    "location": "Community Center Hall",
+    "entry_fee": "$2",
+    "details": "The Handmade Craft Bazaar is a treasure trove of unique, artisan-made goods. Browse a wide selection of jewelry, pottery, textiles, woodcrafts, and more, all crafted by talented local artisans. This event is the perfect place to find one-of-a-kind gifts and souvenirs while supporting small businesses and independent creators. Live acoustic music sets the mood, and local snacks are available to keep you energized as you shop. Whether you're a collector of handmade items or simply appreciate the beauty of artisanal craftsmanship, the bazaar offers a delightful shopping experience filled with creativity and charm."
+  }
+]
