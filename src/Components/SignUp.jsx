@@ -1,14 +1,51 @@
-import React from 'react';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import React, { use } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router';
+import { auth } from './Firebase/Authentication';
+import { AuthContext } from './Provider/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const SignUp = () => {
 
+    const googleProvider = new GoogleAuthProvider() ;
+    const {user} = use(AuthContext) ;
 
+    const handleGoogleSignIn = ()=> {
 
+        signInWithPopup(auth,googleProvider)
+        .then(result =>{
+            toast.success('Signed in successfully') ;
+            console.log(result);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
+
+    const handleSignUpWithEmail = (e)=> {
+
+        // const name = e.target.name.value ;
+        const email = e.target.email.value ;
+        // const photoURL = e.target.photo.value ;
+        const password = e.target.password.value ;
+
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(res =>{
+            toast.success('Account Created Successfully');
+            console.log(res) ;
+        })
+        .catch(error => {
+            console.log(error) ;
+        })
+
+    }
+
+    console.log(user);
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className="hero bg-base-200 min-h-screen sora-font">
                 <div className="hero-content flex-col lg:w-[500px] my-20">
                     <div className="text-center lg:text-left">
@@ -25,20 +62,20 @@ const SignUp = () => {
                             <p className='font-medium text-center text-base'>Create an Account</p>
                             <div className='border-t-2 border-dashed border-gray-200 my-4'></div>
 
-                            <fieldset className="fieldset">
+                            <form onSubmit={handleSignUpWithEmail} className="fieldset">
                                 <label className="label">Name</label>
-                                <input type='text' className="input" placeholder="Name" />
+                                <input type='text' name='name' className="input" placeholder="Name" />
                                 <label className="label">Email</label>
-                                <input type="email" className="input" placeholder="Email" />
+                                <input type="email" name='email' className="input" placeholder="Email" />
                                 <label className="label">Photo URL</label>
-                                <input type='text' className="input" placeholder="Photo URL" />
+                                <input type='text' name='photo' className="input" placeholder="Photo URL" />
                                 <label className="label">Password</label>
-                                <input type="password" className="input" placeholder="Password" />
+                                <input type="password" name='password' className="input" placeholder="Password" />
                                 <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>LogIn</span></Link></a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
-                                <div className="btn btn-outline mt-1">
+                                <div onClick={handleGoogleSignIn} className="btn btn-outline mt-1">
                                     <span><FcGoogle size={20} /></span> <span>SignIn with Google</span></div>
-                            </fieldset>
+                            </form >
 
                         </div>
                     </div>

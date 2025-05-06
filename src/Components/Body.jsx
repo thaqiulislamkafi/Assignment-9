@@ -34,7 +34,7 @@ const Event = ({ data }) => {
     return (
         <div>
             <div className='border-2 border-gray-200 p-5 flex flex-col gap-6 rounded-xl sora-font'>
-                <div className='bg-gray-100 p-6 rounded-xl w-full h-auto'><img className='rounded-xl h-48' src={data.thumbnail} alt="" /></div>
+                <div className='bg-gray-100 md:p-6 rounded-xl w-full h-auto'><img className='rounded-xl h-48' src={data.thumbnail} alt="" /></div>
                 <div className='text-start'>
                     <div className='flex gap-3 font-medium'>
                         <p className='text-[#23BE0A] text-xs px-3 py-2 bg-[#22be0a1e] rounded-2xl'># Available </p>
