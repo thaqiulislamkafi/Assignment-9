@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Error from "./Components/Error";
 import DynamicError from "./Components/DynamicError";
 import LogIn from "./Components/LogIn";
+import SignUp from "./Components/SignUp";
 
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <LogIn></LogIn>
+            },
+            {
+                path : 'signup',
+                element :<SignUp></SignUp>
             },
             {
                 path: '*',
