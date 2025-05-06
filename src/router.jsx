@@ -5,31 +5,36 @@ import EventDetails from "./Components/eventDetails";
 import { Suspense } from "react";
 import Error from "./Components/Error";
 import DynamicError from "./Components/DynamicError";
+import LogIn from "./Components/LogIn";
 
 
 
 const router = createBrowserRouter([
     {
-        path : '/',
-        Component : Home,
-        children : [
+        path: '/',
+        Component: Home,
+        children: [
             {
-                index : true ,
-                Component : Body,
-                loader : ()=> fetch('../eventData.json')
+                index: true,
+                Component: Body,
+                loader: () => fetch('../eventData.json')
             },
             {
-                path : 'event/:id',
-                element : <Suspense fallback={<div className=" flex justify-center items-center h-screen">
-                <span className="loading loading-dots" style={{width : '50px' }}></span>
+                path: 'event/:id',
+                element: <Suspense fallback={<div className=" flex justify-center items-center h-screen">
+                    <span className="loading loading-dots" style={{ width: '50px' }}></span>
                 </div>}><EventDetails></EventDetails></Suspense>,
-                loader : ()=> fetch('../eventData.json'),
-                errorElement : <DynamicError></DynamicError>
+                loader: () => fetch('../eventData.json'),
+                errorElement: <DynamicError></DynamicError>
             },
             {
-                path : '*',
-                element : <Suspense fallback={
-                    <div className="flex items-center justify-center h-screen"><span className="loading loading-dots" style={{width : '50px'}}></span></div>
+                path: 'login',
+                element: <LogIn></LogIn>
+            },
+            {
+                path: '*',
+                element: <Suspense fallback={
+                    <div className="flex items-center justify-center h-screen"><span className="loading loading-dots" style={{ width: '50px' }}></span></div>
                 }
                 ><Error></Error></Suspense>
             }
@@ -37,4 +42,4 @@ const router = createBrowserRouter([
     }
 ])
 
-export default router ;
+export default router;

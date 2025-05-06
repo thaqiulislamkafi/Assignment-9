@@ -70,11 +70,11 @@
 }
 
 .cover-title {
-  @apply  text-2xl lg:text-4xl md:text-3xl font-semibold pt-38 w-[500px] leading-10.5 
+  @apply  text-3xl lg:text-4xl md:text-3xl font-semibold pt-38  leading-10.5 
 }
 
 .cover-description {
-  @apply  text-xs md:text-sm font-light mt-3 w-[450px] text-gray-200
+  @apply  text-sm font-light mt-3 lg:w-[33.10vw] text-gray-200
 }
 
 .cover-button {

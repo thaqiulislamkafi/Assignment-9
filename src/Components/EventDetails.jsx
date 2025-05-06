@@ -22,7 +22,7 @@ const EventDetails = () => {
               {/* ..............Event Bar.............. */}
 
                 <div className='my-10 p-7 border-2 border-gray-200 rounded-xl flex flex-col md:flex-row md:items-center gap-8 font-medium'>
-                    <div className='bg-gray-200 p-6 rounded-xl w-[29.13vw] h-auto'><img className='rounded-xl' src={data.thumbnail} alt="" /></div>
+                    <div className='bg-gray-200 p-6 rounded-xl lg:w-[29.13vw] h-auto'><img className='rounded-xl' src={data.thumbnail} alt="" /></div>
 
                     <div className='text text-gray-700'>
                         <p className='text-[#176AE5] text-xs px-3 py-2 bg-[#1769e51c] rounded-2xl w-fit my-2'># {data.category} </p>

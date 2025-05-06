@@ -20,7 +20,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='Nav-last items-center'>
-                    <div><button className='Button bg-[#23BE0A] text-white'>Sign In</button></div>
+                    <div>
+                        <Link to={'/login'}> <button className='Button bg-[#23BE0A] text-white'>Sign In</button> </Link>
+                        
+                        </div>
                    
                     
                 </div>
