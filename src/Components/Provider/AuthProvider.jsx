@@ -7,6 +7,7 @@ const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState(null) ;
     const [loading,setLoading] = useState(true);
+    const [emailValue,setEmailValue] = useState(null);
 
     useEffect(()=> {
 
@@ -23,6 +24,8 @@ const AuthProvider = ({children}) => {
         setUser,
         loading,
         setLoading,
+        emailValue,
+        setEmailValue
     };
 
 

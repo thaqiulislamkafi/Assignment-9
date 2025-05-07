@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from './Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from './Firebase/Authentication';
@@ -9,10 +9,10 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const LogIn = () => {
 
-    const {user,setLoading} = use(AuthContext);
+    const {user,setLoading,setEmailValue} = use(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
-
+    const navigate = useNavigate() ;
 
     const handleGoogleSignin = () => {
 
@@ -48,6 +48,10 @@ const LogIn = () => {
             })
     }
 
+    const handleForgot = ()=> {
+            navigate('/resetPassword')
+    }
+
     return (
         <div>
             <ToastContainer></ToastContainer>
@@ -69,10 +73,12 @@ const LogIn = () => {
 
                             <form onSubmit={handleSigninWithEmail} className="fieldset">
                                 <label className="label">Email</label>
-                                <input type="email" name='email' className="input" placeholder="Email" />
+                                <input type="email" name='email'
+                                onChange={(e)=>setEmailValue(e.target.value)}
+                                className="input" placeholder="Email" />
                                 <label className="label">Password</label>
                                 <input type="password" name='password' className="input" placeholder="Password" />
-                                <div><a className="link link-hover">Forgot password?</a></div>
+                                <div><a onClick={handleForgot} className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
 
                                 <div onClick={handleGoogleSignin} className="btn btn-outline mt-1">

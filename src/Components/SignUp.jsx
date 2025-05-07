@@ -1,18 +1,25 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup ,updateProfile} from 'firebase/auth';
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router';
 import { auth } from './Firebase/Authentication';
 import { AuthContext } from './Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
-
+import { FaEye } from "react-icons/fa";
+import { IoMdEyeOff } from "react-icons/io";
 
 const SignUp = () => {
 
     const googleProvider = new GoogleAuthProvider() ;
     const {user,setLoading,setUser} = use(AuthContext) ;
-
+    const [close,setClose] = useState(true) ;
     const navigate = useNavigate();
+
+
+    const handleToogle = ()=> {
+        setClose(!close) ;
+    }
+
     const handleGoogleSignIn = ()=> {
 
         signInWithPopup(auth,googleProvider)
@@ -35,6 +42,7 @@ const SignUp = () => {
         const email = e.target.email.value ;
         const photoURL = e.target.photo.value ;
         const password = e.target.password.value ;
+
 
         createUserWithEmailAndPassword(auth,email,password)
         .then(res =>{
@@ -86,10 +94,27 @@ const SignUp = () => {
                                 <input type="email" name='email' className="input" placeholder="Email" />
                                 <label className="label">Photo URL</label>
                                 <input type='text' name='photo' className="input" placeholder="Photo URL" />
+                                <div className='relative'>
                                 <label className="label">Password</label>
-                                <input type="password" name='password' className="input" placeholder="Password" />
-                                <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>Sign Up</span></Link></a></div>
-                                <button className="btn btn-neutral mt-4">Login</button>
+                                <input type= {close ? 'password' : 'text'} 
+                                name='password' className="input" placeholder="Password" />
+
+                                
+                                <p onClick={handleToogle} className='absolute link top-8 right-7'>
+                                    {close ? <FaEye /> : <IoMdEyeOff />}
+                                    
+                                    </p>
+                                    
+                                    
+                                
+                                
+                                
+
+
+
+                                </div>
+                                <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>Log in</span></Link></a></div>
+                                <button className="btn btn-neutral mt-4">Sign Up</button>
                                 <div onClick={handleGoogleSignIn} className="btn btn-outline mt-1">
                                     <span><FcGoogle size={20} /></span> <span>SignUp with Google</span></div>
                             </form >
