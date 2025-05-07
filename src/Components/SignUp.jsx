@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup ,updateProfile} from 'firebase/auth';
 import React, { use } from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { auth } from './Firebase/Authentication';
 import { AuthContext } from './Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,13 +10,17 @@ import { toast, ToastContainer } from 'react-toastify';
 const SignUp = () => {
 
     const googleProvider = new GoogleAuthProvider() ;
-    const {user} = use(AuthContext) ;
+    const {user,setLoading,setUser} = use(AuthContext) ;
 
+    const navigate = useNavigate();
     const handleGoogleSignIn = ()=> {
 
         signInWithPopup(auth,googleProvider)
         .then(result =>{
-            toast.success('Signed in successfully') ;
+            toast.success('Signed in successfully',{
+                toastId : 'User'
+            }) ;
+            setLoading(true);
             console.log(result);
         })
         .catch(error => {
@@ -26,15 +30,28 @@ const SignUp = () => {
 
     const handleSignUpWithEmail = (e)=> {
 
-        // const name = e.target.name.value ;
+        e.preventDefault();
+        const name = e.target.name.value ;
         const email = e.target.email.value ;
-        // const photoURL = e.target.photo.value ;
+        const photoURL = e.target.photo.value ;
         const password = e.target.password.value ;
 
         createUserWithEmailAndPassword(auth,email,password)
         .then(res =>{
             toast.success('Account Created Successfully');
             console.log(res) ;
+            setLoading(true);
+
+            updateProfile(auth.currentUser ,{
+                displayName : name,
+                photoURL : photoURL
+            })
+            .then(()=>{
+                setUser({...user,displayName : name, photoURL : photoURL}) ;
+                navigate('/');
+
+            })
+
         })
         .catch(error => {
             console.log(error) ;
@@ -71,10 +88,10 @@ const SignUp = () => {
                                 <input type='text' name='photo' className="input" placeholder="Photo URL" />
                                 <label className="label">Password</label>
                                 <input type="password" name='password' className="input" placeholder="Password" />
-                                <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>LogIn</span></Link></a></div>
+                                <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>Sign Up</span></Link></a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                                 <div onClick={handleGoogleSignIn} className="btn btn-outline mt-1">
-                                    <span><FcGoogle size={20} /></span> <span>SignIn with Google</span></div>
+                                    <span><FcGoogle size={20} /></span> <span>SignUp with Google</span></div>
                             </form >
 
                         </div>

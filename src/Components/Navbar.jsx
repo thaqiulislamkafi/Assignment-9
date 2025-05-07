@@ -7,17 +7,17 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const Navbar = () => {
 
-    const {user} = use(AuthContext) ;
-    const handleSignOut = ()=> {
+    const { user } = use(AuthContext);
+    const handleSignOut = () => {
 
-        signOut(auth).then(()=> {
-            toast.success('Logged Out Successfull')         
+        signOut(auth).then(() => {
+            toast.success('Logged Out Successfull')
             console.log("Sign Out SuccessFull")
         })
-        .catch(error =>{
-            toast.error('An error Occurred') ;
-            console.log(error);
-        })
+            .catch(error => {
+                toast.error('An error Occurred');
+                console.log(error);
+            })
     }
 
     return (
@@ -34,21 +34,32 @@ const Navbar = () => {
                     <ul className='Nav-mid mt-0.5 poppins'>
                         <NavLink to={"/"}>Home</NavLink>
                         <NavLink to={"/kab"}>Blog</NavLink>
-                        
-                        
+                        {
+                            user && <NavLink to={"/profile"}>My Profile</NavLink>
+                        }
+
                     </ul>
                 </div>
                 <div className='Nav-last items-center'>
+                    {
+                        user && 
+                        <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                        <div className='rounded-full p-1 bg-base-200'>
+                            <img className='rounded-full w-10' src={`${user?.photoURL}`} alt="" />
+                        </div>
+                    </div>
+                    }
+
                     <div>
                         {
                             user ? <Link to={''}> <button onClick={handleSignOut} className='Button bg-[#23BE0A] text-white'>Sign Out</button> </Link>
-                            :
-                            <Link to={'/login'}> <button className='Button bg-[#23BE0A] text-white'>Sign In</button> </Link>
+                                :
+                                <Link to={'/login'}> <button className='Button bg-[#23BE0A] text-white'>Sign In</button> </Link>
                         }
-                        
-                        </div>
-                   
-                    
+
+                    </div>
+
+
                 </div>
             </div>
         </div>

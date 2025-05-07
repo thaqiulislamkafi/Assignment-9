@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+// import { toast, ToastContainer } from 'react-toastify';
 
 const EventDetails = () => {
 
@@ -8,8 +9,13 @@ const EventDetails = () => {
 
     const data = eventDatas.find(event => event.id == id)
     console.log(data);
+
+    const handleReserve = ()=> {
+        // toast.success('Successfully Reserved')
+    }
     return (
         <div>
+            {/* <ToastContainer></ToastContainer> */}
             <div className='w-[85.94vw] mx-auto sora-font my-12'>
 
                 {/* ..............Title Bar.............. */}
@@ -48,8 +54,12 @@ const EventDetails = () => {
                 </div>
                 <div className='border-t-2  border-gray-100 my-4'></div>
                
- 
-                <div><button className='Button mt-6 w-full text-white bg-[#0EA106] '>Book Event</button></div>
+                <div className='text-xl font-medium my-3'><p>Reserve A Seat</p></div>
+                <div className='flex items-center gap-3'>
+                <input type="text" placeholder="Your Name" className="input" />
+                <input type="text" placeholder="Your Email" className="input" />
+                </div>
+                <div><button onClick={handleReserve} className='Button mt-6 w-full text-white bg-[#0EA106] '>Reserve a Seat</button></div>
                 
 
 

@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const LogIn = () => {
 
-    const { user } = use(AuthContext);
+    const {user,setLoading} = use(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -18,7 +18,10 @@ const LogIn = () => {
 
         signInWithPopup(auth, googleProvider)
             .then(res => {
-                toast.success('Logged In Successfull')
+                toast.success('Logged In Successfull',{
+                    toastId : 'login-google'
+                });
+                setLoading(true);
                 console.log(res);
             })
             .catch(error => {
@@ -33,7 +36,11 @@ const LogIn = () => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
-                toast.success('Logged In SuccesFull')
+                toast.success('Logged In SuccesFull',
+                    {
+                        toastId: 'LogIn Success'
+                    });
+                setLoading(true);
                 console.log(res);
             })
             .catch(error => {
