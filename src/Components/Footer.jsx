@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <div className='bg-gray-900'>
             <div className=' w-[85.94vw] mx-auto py-24 flex flex-col justify-center text-start md:items-center'>
-                <div className='text-2xl poppins flex items-center gap-4 text-white my-2'>
-                    <div><img className='w-12' src="https://i.postimg.cc/0yDJrn8Z/Eventure-footer-logo.png" alt="" /></div>
+                <div className='text-2xl poppins flex items-center gap-4 text-white my-2 mt-50'>
+                    <div><img className='w-12 h-auto' src="https://i.postimg.cc/0yDJrn8Z/Eventure-footer-logo.png" alt="" /></div>
                     <span className='font-bold text-3xl'>Eventure</span>
                 </div>
                 <div className='pageButtton my-2 text-start md:text-center sora-font'>
