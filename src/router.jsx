@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         Component: Home,
-        errorElement : <DynamicError></DynamicError>,
+        errorElement: <Suspense fallback={<Loader />}><DynamicError></DynamicError></Suspense>,
         children: [
             {
                 index: true,
@@ -54,12 +54,12 @@ const router = createBrowserRouter([
             {
                 path: 'profile',
                 element: <Suspense fallback={<Loader />}>
-            <PrivateRoute><Profile></Profile></PrivateRoute>
+                    <PrivateRoute><Profile></Profile></PrivateRoute>
                 </Suspense>
             },
             {
                 path: 'resetPassword',
-                element: <PrivateRoute><ResetPassword></ResetPassword></PrivateRoute>
+                element: <Suspense fallback={<Loader />}><ResetPassword></ResetPassword></Suspense>
             },
             {
                 path: 'dashboard',

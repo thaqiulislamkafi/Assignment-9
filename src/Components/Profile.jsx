@@ -3,6 +3,7 @@ import { AuthContext } from './Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from './Firebase/Authentication';
 import { Helmet } from 'react-helmet-async';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
 
@@ -26,7 +27,12 @@ const Profile = () => {
 
         })
             .then(() => {
+                toast.success('User Updated');
                 setUser({ ...user, displayName: name, photoURL: photoURL });
+            })
+            .catch(error => {
+                toast.error('User Updating Failed');
+                console.log(error);
             })
 
     }
@@ -54,20 +60,19 @@ const Profile = () => {
                                         <div className='flex items-center gap-3 my-2'>
                                             <label className="label md:mr-11">Name</label>
                                             <input type="text"
+                                                required
                                                 name='name' className="input rounded-4xl" placeholder="Update Your Name" />
 
                                         </div>
 
-                                        <div className='flex items-center gap-3 my-2'>
-                                            <label className="label md:mr-11">Email</label>
-                                            <input type="email"
-                                                name='email' className="input rounded-4xl" placeholder="Update Your Email" />
-                                        </div>
+                                    
 
                                         <div className='flex items-center gap-3 my-2'>
                                             <label className="label md:mr-2">PhotoURL</label>
                                             <input type="text"
-                                                name='photo' className="input rounded-4xl" placeholder="Update Your photoURL" />
+                                                name='photo'
+                                                required
+                                                className="input rounded-4xl" placeholder="Update Your photoURL" />
                                         </div>
 
                                         <button className="btn rounded-4xl mt-4 ">Submit</button>

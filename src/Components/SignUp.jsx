@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup ,updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import React, { use, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router';
@@ -11,65 +11,68 @@ import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
 
-    const googleProvider = new GoogleAuthProvider() ;
-    const {user,setLoading,setUser} = use(AuthContext) ;
-    const [close,setClose] = useState(true) ;
+    const googleProvider = new GoogleAuthProvider();
+    const { user, setLoading, setUser } = use(AuthContext);
+    const [close, setClose] = useState(true);
     const navigate = useNavigate();
 
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/ ;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
-    const handleToogle = ()=> {
-        setClose(!close) ;
+    const handleToogle = () => {
+        setClose(!close);
     }
 
-    const handleGoogleSignIn = ()=> {
+    const handleGoogleSignIn = () => {
 
-        signInWithPopup(auth,googleProvider)
-        .then(result =>{
-            toast.success('Signed in successfully',{
-                toastId : 'User'
-            }) ;
-            setLoading(false);
-            console.log(result);
-        })
-        .catch(error => {
-            console.error(error);
-        })
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                toast.success('Signed in successfully', {
+                    toastId: 'User'
+                });
+                setLoading(false);
+                console.log(result);
+            })
+            .catch(error => {
+                toast.error('Signed in Failed')
+                console.error(error);
+            })
     }
 
-    const handleSignUpWithEmail = (e)=> {
+    const handleSignUpWithEmail = (e) => {
 
         e.preventDefault();
-        const name = e.target.name.value ;
-        const email = e.target.email.value ;
-        const photoURL = e.target.photo.value ;
-        const password = e.target.password.value ;
-        
-        if(passwordRegex.test(password)===false){
-            toast.error('Password have must at least Uppercase,Lower case and more than 6 letters') ;
-            return ;
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const photoURL = e.target.photo.value;
+        const password = e.target.password.value;
+
+        if (passwordRegex.test(password) === false) {
+            toast.error('Password have must at least Uppercase,Lower case and more than 6 letters');
+            return;
         }
 
-        createUserWithEmailAndPassword(auth,email,password)
-        .then(res =>{
-            toast.success('Account Created Successfully');
-            console.log(res) ;
-            setLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(res => {
+                toast.success('Account Created Successfully');
+                console.log(res);
+                
 
-            updateProfile(auth.currentUser ,{
-                displayName : name,
-                photoURL : photoURL
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photoURL });
+                        setLoading(true);
+                        navigate('/');
+
+                    })
+
             })
-            .then(()=>{
-                setUser({...user,displayName : name, photoURL : photoURL}) ;
-                navigate('/');
-
+            .catch(error => {
+                toast.error('User Creating Failed')
+                console.log(error);
             })
-
-        })
-        .catch(error => {
-            console.log(error) ;
-        })
 
     }
 
@@ -103,12 +106,12 @@ const SignUp = () => {
                                 <label className="label">Photo URL</label>
                                 <input type='text' name='photo' className="input" placeholder="Photo URL" />
                                 <div className='relative'>
-                                <label className="label">Password</label>
-                                <input type= {close ? 'password' : 'text'} 
-                                name='password' className="input" placeholder="Password" />
-                     
-                                <p onClick={handleToogle} className='absolute link top-8 md:right-7 right-4'>
-                                    {close ? <FaEye size={16} /> : <IoMdEyeOff size={17} />}
+                                    <label className="label">Password</label>
+                                    <input type={close ? 'password' : 'text'}
+                                        name='password' className="input" placeholder="Password" />
+
+                                    <p onClick={handleToogle} className='absolute link top-8 md:right-7 right-4'>
+                                        {close ? <FaEye size={16} /> : <IoMdEyeOff size={17} />}
                                     </p>
 
                                 </div>

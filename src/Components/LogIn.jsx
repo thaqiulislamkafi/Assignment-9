@@ -6,6 +6,7 @@ import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 
 import { auth } from './Firebase/Authentication';
 import { toast, ToastContainer } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router';
 
 
 const LogIn = () => {
@@ -14,7 +15,7 @@ const LogIn = () => {
 
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate() ;
-
+    const location = useLocation();
     const handleGoogleSignin = () => {
 
         signInWithPopup(auth, googleProvider)
@@ -24,8 +25,10 @@ const LogIn = () => {
                 });
                 setLoading(false);
                 console.log(res);
+                navigate(`${location.state ? location.state : "/"}`);
             })
             .catch(error => {
+                toast.error('Logged in failed')
                 console.log(error);
             })
     }
@@ -43,13 +46,16 @@ const LogIn = () => {
                     });
                 setLoading(false);
                 console.log(res);
+                navigate(`${location.state ? location.state : "/"}`);
             })
             .catch(error => {
                 console.log(error);
+                toast.error('Logged in fail')
             })
     }
 
-    const handleForgot = ()=> {
+    const handleForgot = (e)=> {
+        e.preventDefault()
             navigate('/resetPassword')
     }
 
