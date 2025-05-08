@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData, useParams } from 'react-router';
 // import { toast, ToastContainer } from 'react-toastify';
 
@@ -16,6 +17,10 @@ const EventDetails = () => {
     return (
         <div>
             {/* <ToastContainer></ToastContainer> */}
+
+            <Helmet>
+                <title>Event Details | {id}</title>
+            </Helmet>
             <div className='w-[85.94vw] mx-auto sora-font my-12'>
 
                 {/* ..............Title Bar.............. */}

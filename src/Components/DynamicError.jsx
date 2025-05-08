@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation, useNavigate, useRouteError } from 'react-router';
 
 const DynamicError = () => {
@@ -13,7 +14,13 @@ const DynamicError = () => {
         navigate('/') ;
     }
     return (
+        
+
         <div className='flex justify-center items-center h-screen text-center'>
+
+            <Helmet>
+                <title>Error Page | {location.pathname}</title>
+            </Helmet>
              <div className='sora-font '>
                 <p className='text-4xl my-3 font-bold'>No Event Found !</p>
                 <p className='text-xl my-3 text-gray-800'>No Event Found with this Id - </p>

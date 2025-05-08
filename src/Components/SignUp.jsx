@@ -15,6 +15,7 @@ const SignUp = () => {
     const [close,setClose] = useState(true) ;
     const navigate = useNavigate();
 
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/ ;
 
     const handleToogle = ()=> {
         setClose(!close) ;
@@ -27,7 +28,7 @@ const SignUp = () => {
             toast.success('Signed in successfully',{
                 toastId : 'User'
             }) ;
-            setLoading(true);
+            setLoading(false);
             console.log(result);
         })
         .catch(error => {
@@ -42,7 +43,11 @@ const SignUp = () => {
         const email = e.target.email.value ;
         const photoURL = e.target.photo.value ;
         const password = e.target.password.value ;
-
+        
+        if(passwordRegex.test(password)===false){
+            toast.error('Password have must at least Uppercase,Lower case and more than 6 letters') ;
+            return ;
+        }
 
         createUserWithEmailAndPassword(auth,email,password)
         .then(res =>{
@@ -70,7 +75,7 @@ const SignUp = () => {
     console.log(user);
     return (
         <div>
-            <ToastContainer></ToastContainer>
+            
             <div className="hero bg-base-200 min-h-screen sora-font">
                 <div className="hero-content flex-col lg:w-[500px] my-20">
                     <div className="text-center lg:text-left">
@@ -98,19 +103,10 @@ const SignUp = () => {
                                 <label className="label">Password</label>
                                 <input type= {close ? 'password' : 'text'} 
                                 name='password' className="input" placeholder="Password" />
-
-                                
-                                <p onClick={handleToogle} className='absolute link top-8 right-7'>
-                                    {close ? <FaEye /> : <IoMdEyeOff />}
-                                    
+                     
+                                <p onClick={handleToogle} className='absolute link top-8 md:right-7 right-4'>
+                                    {close ? <FaEye size={16} /> : <IoMdEyeOff size={17} />}
                                     </p>
-                                    
-                                    
-                                
-                                
-                                
-
-
 
                                 </div>
                                 <div><a className="">Already have an account? Please <Link to={'/login'}><span className='link'>Log in</span></Link></a></div>

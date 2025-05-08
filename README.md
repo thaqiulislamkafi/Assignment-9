@@ -1,12 +1,35 @@
-# React + Vite
+Eventure | A Local Event Discovery Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live URL: Visit Eventure
 
-Currently, two official plugins are available:
+Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Eventure is a modern web application designed to help users discover, explore, and engage with upcoming local events. From tech expos to art fairs, this platform brings community events to life with an intuitive interface and dynamic functionality. Whether you're looking for a family-friendly day out or a tech meetup, Eventure makes event browsing and participation seamless and accessible.
 
-## Expanding the ESLint configuration
+Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Amazing Toastify NotificationsSmooth and informative toast messages notify users about successful actions like login, item deletion, or errors — enhancing user experience.
+
+Firebase AuthenticationSecure and simple authentication using Firebase allows users to register, sign in, and manage sessions efficiently.
+
+Responsive Sign Up and Sign In PageFully mobile-friendly and styled with modern UI libraries, the authentication pages provide a consistent experience across devices.
+
+Exclusive My Profile PageLogged-in users can access a personalized profile page that displays their saved/favorite events and other personal details.
+
+User's Login/Logout SystemA seamless session management system ensures users can safely log in and out with Firebase handling the backend.
+
+Blog PageInformative and engaging blog section with articles related to event culture, planning tips, and community highlights.
+
+NPM Packages Used
+
+Firebase – For authentication and backend services
+
+React Icons – Lightweight and customizable icon set
+
+React Helmet – Manage document head data like page titles and meta tags
+
+React Toastify – Provides user-friendly notifications
+
+Swiper JS – Modern mobile touch slider for showcasing featured events
+
+Tailwind CSS & DaisyUI – Utility-first CSS framework and UI component library for fast and responsive design

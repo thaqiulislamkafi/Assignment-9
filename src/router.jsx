@@ -10,6 +10,9 @@ import SignUp from "./Components/SignUp";
 import PrivateRoute from "./Components/Provider/PrivateRoute";
 import Profile from "./Components/Profile";
 import ResetPassword from "./Components/ResetPassword";
+import Dashboard from "./Components/Dashboard";
+import Blog from "./Components/Blog";
+import Loader from "./Components/Loader";
 
 
 const router = createBrowserRouter([
@@ -25,37 +28,51 @@ const router = createBrowserRouter([
             {
                 path: 'event/:id',
                 element: <PrivateRoute>
-                    <Suspense fallback={<div className=" flex justify-center items-center h-screen">
-                        <span className="loading loading-dots" style={{ width: '50px' }}></span>
-                    </div>}><EventDetails></EventDetails></Suspense>
+                    <Suspense fallback={<Loader />}><EventDetails></EventDetails></Suspense>
                 </PrivateRoute>,
                 loader: () => fetch('../eventData.json'),
                 errorElement: <DynamicError></DynamicError>
             },
             {
+                path: 'blog',
+                element: <Suspense fallback={<Loader />}><PrivateRoute><Blog></Blog></PrivateRoute></Suspense>,
+                loader: () => fetch('../blog.json'),
+
+            },
+            {
                 path: 'login',
-                element: <LogIn></LogIn>
+                element: <Suspense fallback={<Loader />}><LogIn></LogIn>
+                </Suspense>
             },
             {
                 path: 'signup',
-                element: <SignUp></SignUp>
+                element: <Suspense>
+                    <SignUp fallback={<Loader />}></SignUp>
+                </Suspense>
             },
             {
-                path : 'profile',
-                element : <Profile></Profile>
+                path: 'profile',
+                element: <Suspense fallback={<Loader />}>
+            <PrivateRoute><Profile></Profile></PrivateRoute>
+                </Suspense>
             },
             {
-                path : 'resetPassword',
-                element : <ResetPassword></ResetPassword>
+                path: 'resetPassword',
+                element: <PrivateRoute><ResetPassword></ResetPassword></PrivateRoute>
             },
             {
-                path: '*',
-                element: <Suspense fallback={
-                    <div className="flex items-center justify-center h-screen"><span className="loading loading-dots" style={{ width: '50px' }}></span></div>
-                }
-                ><Error></Error></Suspense>
-            }
+                path: 'dashboard',
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+            },
+
         ]
+    },
+    {
+        path: '*',
+        element: <Suspense fallback={
+            <div className="flex items-center justify-center h-screen"><span className="loading loading-dots" style={{ width: '50px' }}></span></div>
+        }
+        ><Error></Error></Suspense>
     }
 ])
 

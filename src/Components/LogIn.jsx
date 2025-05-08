@@ -5,6 +5,7 @@ import { AuthContext } from './Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from './Firebase/Authentication';
 import { toast, ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 
 const LogIn = () => {
@@ -21,7 +22,7 @@ const LogIn = () => {
                 toast.success('Logged In Successfull',{
                     toastId : 'login-google'
                 });
-                setLoading(true);
+                setLoading(false);
                 console.log(res);
             })
             .catch(error => {
@@ -40,7 +41,7 @@ const LogIn = () => {
                     {
                         toastId: 'LogIn Success'
                     });
-                setLoading(true);
+                setLoading(false);
                 console.log(res);
             })
             .catch(error => {
@@ -54,7 +55,11 @@ const LogIn = () => {
 
     return (
         <div>
-            <ToastContainer></ToastContainer>
+            
+            <Helmet>
+                <title>Log In</title>
+            </Helmet>
+
             <div className="hero bg-base-200 min-h-screen sora-font">
                 <div className="hero-content flex-col gap-10 lg:flex-row my-12">
                     <div className="text-center lg:text-left">

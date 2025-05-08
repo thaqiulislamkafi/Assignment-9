@@ -33,10 +33,10 @@ const Navbar = () => {
                 <div className='pageButtton'>
                     <ul className='Nav-mid mt-0.5 poppins'>
                         <NavLink to={"/"}>Home</NavLink>
-                        <NavLink to={"/kab"}>Blog</NavLink>
-                        {
-                            user && <NavLink to={"/profile"}>My Profile</NavLink>
-                        }
+                        <NavLink to={"/event"}>Events</NavLink>
+                    
+                        {  user &&  <NavLink to={"/blog"}>Blog</NavLink>  }
+                        {  user &&  <NavLink to={"/profile"}>My Profile</NavLink>  }
 
                     </ul>
                 </div>

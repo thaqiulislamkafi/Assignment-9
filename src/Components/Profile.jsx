@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { AuthContext } from './Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from './Firebase/Authentication';
+import { Helmet } from 'react-helmet-async';
 
 const Profile = () => {
 
@@ -32,6 +33,9 @@ const Profile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Profile | {user.displayName}</title>
+            </Helmet>
             <div className="hero bg-base-200 min-h-screen sora-font">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
