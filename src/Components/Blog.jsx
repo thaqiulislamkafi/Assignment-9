@@ -1,6 +1,7 @@
-import React, { use } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router';
 import Footer from './Footer';
+import { Helmet } from 'react-helmet-async';
 
 
 const Blog = () => {
@@ -28,6 +29,9 @@ const Post = ({data}) => {
 
     return (
         <div>
+            <Helmet>
+                <title>Blog</title>
+            </Helmet>
             <div className='border-2 border-gray-200 rounded-2xl py-6 px-10 text-start'>
                 <p className='text-xl md:text-2xl text-gray-900 font-medium my-2 mb-6'>{data.title}</p>
                 <div className=' border-t-2 border-dashed border-gray-200 my-5'></div>

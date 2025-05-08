@@ -7,6 +7,7 @@ import { AuthContext } from './Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
 
@@ -75,7 +76,9 @@ const SignUp = () => {
     console.log(user);
     return (
         <div>
-            
+            <Helmet>
+                <title>Sign Up</title>
+            </Helmet>
             <div className="hero bg-base-200 min-h-screen sora-font">
                 <div className="hero-content flex-col lg:w-[500px] my-20">
                     <div className="text-center lg:text-left">

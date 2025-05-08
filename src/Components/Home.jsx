@@ -8,7 +8,7 @@ const Home = () => {
 
     const location = useLocation() ;
     const isErrorPage = location.pathname === '/error' || location.pathname === '*';
-
+    console.log(import.meta.env.VITE_base_URL) ;
     return (
         <div>
             <Helmet>

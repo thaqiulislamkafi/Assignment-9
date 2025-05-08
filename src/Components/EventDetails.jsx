@@ -12,11 +12,11 @@ const EventDetails = () => {
     console.log(data);
 
     const handleReserve = ()=> {
-        // toast.success('Successfully Reserved')
+        toast.success('Successfully Reserved')
     }
     return (
         <div>
-            {/* <ToastContainer></ToastContainer> */}
+           
 
             <Helmet>
                 <title>Event Details | {id}</title>

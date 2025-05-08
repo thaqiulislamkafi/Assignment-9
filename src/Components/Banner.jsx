@@ -1,12 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/autoplay';
 
 const Banner = () => {
     return (
         <div>
 
-            <Swiper onSlideChange={()=> console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+            <Swiper modules={[Autoplay]} onSlideChange={()=> console.log('slide change')} autoplay={{delay :3000 , disableOnInteraction : false}} loop={true} onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide>
                     <div className='banner Slide-1 relative h-screen max-h-[500px] bg-[image:linear-gradient(to_top,black,transparent),url("https://i.postimg.cc/bYBmcMXD/pexels-pixabay-50675.jpg")] bg-cover bg-center mt-5 sora-font'>
                         <div className='text-white w-[85.94vw] mx-auto'>

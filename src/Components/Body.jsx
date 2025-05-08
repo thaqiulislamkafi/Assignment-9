@@ -77,19 +77,26 @@ const NewsletterSubscribe = () => {
         </div>
         <div className="description text-center lg:text-left">
           <h2 className="font-bold lg:font-semibold text-xl lg:text-3xl text-accentcolor lg:text-black">
-            Get Event News!
+            Give Feedback !
           </h2>
           <p className="text-base lg:text-lg my-4">
-            Exclusive events and event titles, details and more.
+            Share your opinion to us to improve our rendering services
           </p>
           <input
             type="text"
             placeholder="Enter Email"
             className="input input-ghost w-full max-w-xs bg-white"
           />
+          <div className='my-3'>
+          <textarea
+            type="text"
+            placeholder=""
+            className="input input-ghost w-full max-w-xs bg-white"
+          />
+          </div>
           <div className="btn mt-3">
             <button className="my-5 bg-accentcolor  text-sm py-2 px-7 rounded-lg ">
-              Subscribe
+              Send
             </button>
           </div>
         </div>

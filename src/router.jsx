@@ -19,6 +19,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         Component: Home,
+        errorElement : <DynamicError></DynamicError>,
         children: [
             {
                 index: true,
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
                     <Suspense fallback={<Loader />}><EventDetails></EventDetails></Suspense>
                 </PrivateRoute>,
                 loader: () => fetch('../eventData.json'),
-                errorElement: <DynamicError></DynamicError>
+                // errorElement: <DynamicError></DynamicError>
             },
             {
                 path: 'blog',

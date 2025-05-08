@@ -6,29 +6,29 @@ import { Helmet } from 'react-helmet-async';
 
 const Profile = () => {
 
-    const { user,setUser } = use(AuthContext);
+    const { user, setUser } = use(AuthContext);
     const [edit, setEdit] = useState(false);
 
-    const handleEdit = ()=> {
+    const handleEdit = () => {
         setEdit(true);
     }
 
-    const  handleSubmit = (e)=> {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setEdit(false);
-        const name = e.target.name.value ;
+        const name = e.target.name.value;
         // const email = e.target.email.value ;
-        const photoURL = e.target.photo.value ;
+        const photoURL = e.target.photo.value;
 
-        updateProfile(auth.currentUser ,{
-            displayName : name,
-            photoURL : photoURL,
+        updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL,
 
         })
-        .then(()=>{
-            setUser({...user,displayName : name, photoURL : photoURL}) ;
-        })
-        
+            .then(() => {
+                setUser({ ...user, displayName: name, photoURL: photoURL });
+            })
+
     }
 
     return (
@@ -54,20 +54,20 @@ const Profile = () => {
                                         <div className='flex items-center gap-3 my-2'>
                                             <label className="label md:mr-11">Name</label>
                                             <input type="text"
-                                            name='name' className="input rounded-4xl" placeholder="Update Your Name" />
+                                                name='name' className="input rounded-4xl" placeholder="Update Your Name" />
 
                                         </div>
 
                                         <div className='flex items-center gap-3 my-2'>
                                             <label className="label md:mr-11">Email</label>
                                             <input type="email"
-                                            name='email' className="input rounded-4xl" placeholder="Update Your Email" />
+                                                name='email' className="input rounded-4xl" placeholder="Update Your Email" />
                                         </div>
 
                                         <div className='flex items-center gap-3 my-2'>
                                             <label className="label md:mr-2">PhotoURL</label>
                                             <input type="text"
-                                            name='photo' className="input rounded-4xl" placeholder="Update Your photoURL" />
+                                                name='photo' className="input rounded-4xl" placeholder="Update Your photoURL" />
                                         </div>
 
                                         <button className="btn rounded-4xl mt-4 ">Submit</button>
